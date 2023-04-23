@@ -1,9 +1,11 @@
+server:
+  port: 9090
 spring:
   datasource:
     url: jdbc:h2:mem:interstellar_gateway
     driverClassName: org.h2.Driver
     username: interstellar
-    password: '*^|1BRSEW8@N>a'
+    password: p@55w0rd2
   jpa:
     database-platform: org.hibernate.dialect.H2Dialect
   h2:

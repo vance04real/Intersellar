@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Evans Chikuni | Assessment</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+</head>
+<body>
+<br>
+<center>
+    <img th:src="@{/images/img.png}" alt="" class="rounded mx-auto d-block" width="120">
+</center>
+<hr>
+
+<h1 class="text-center">Welcome</h1>
+<h1 class="text-center">Calculate the shortest route</h1>
+
+
+
+<div class="container">
+        <form th:action="@{/api/distance/get}" object="${routeDto}" method="POST" modalAttribute="routeDto">
+
+            <div  th:if="${ErrorMessage}">
+                <div class="alert alert-danger" role="alert">
+                    <span  th:text="${ErrorMessage}"/>
+                </div>
+            </div>
+            <label for="start" class="col-form-label">Start Planet:</label>
+
+            <div class="row">
+                <div class="col">
+                    <input type="text" id="start" class="form-control" name="start">
+                </div>
+            </div>
+            <label for="end" class="col-form-label" >Destination Planet:</label>
+
+            <div class="row">
+                <div class="col">
+                    <input type="text" id="end" class="form-control" name="end"><br><br>
+                </div>
+            </div>
+            <input type="submit"  class="form-control btn btn-primary" value="Submit">
+        </form>
+    </div>
+
+<br>
+<hr>
+
+<div class="container">
+    <div class="row">
+        <label for="dist" class="col-form-label" >Shortest Distance (M):</label>
+        <div  id="dist" th:if="${Distance}">
+            <h3 class="text-center" th:text="${Distance}"/>
+        </div>
+        <table class="table table-bordered table-striped dataTable" role="grid">
+            <thead class="thead">
+            <tr>
+                <th>Planets</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="planet : ${PlanetsResponse}">
+                <td th:text="${planet}">Planets</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>

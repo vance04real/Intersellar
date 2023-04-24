@@ -23,8 +23,6 @@ This project consists of 1 deploy-able artefacts:
 ### Deploy-able
 - evansChikuni-1.0.0_SNAPSHOT
 
-### Installing
-
 ```
 +-- evansChikuni
 +-- .idea
@@ -59,9 +57,16 @@ datasource:
     
 ```
 
-4. Run the application
+4. Running the application
 ```
 mvn spring-boot:run
+
+Landing Page is localhost:9090 - Welcome Page 
+
+1. First Load the file by navigating to http://localhost:9090/upload
+2. After successfully loading file ,it will redirect to the Welcome Page.
+3. Enter the Source Planet e.g A and the Destination Planet e.g F
+4. Click Submit and get the Calculated Distance.
 ```
 5. Navigate into the evansChikuni/src/main/resources/
 ```
